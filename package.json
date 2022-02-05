@@ -1,0 +1,24 @@
+{
+  "name": "batur.ai",
+  "version": "1.0.0",
+  "description": "Bad Actor and Toxic User Removal is a Discord bot developed by IBXCODECAT! BATUR uses AI to scan for \"bad faith acting\" and high levels of toxicity within a discord message. If BATUR flags a message, it will perform a custom moderation action specified by the server administrators.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IBXCODECAT/BATUR.ai.git"
+  },
+  "author": "IBXCODECAT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IBXCODECAT/BATUR.ai/issues"
+  },
+  "homepage": "https://github.com/IBXCODECAT/BATUR.ai#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "fs": "^0.0.1-security"
+  }
+}
