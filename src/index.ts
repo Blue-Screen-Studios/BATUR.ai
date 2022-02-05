@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { Client, Intents } from 'discord.js';
+import { Client, Intents, Message, User } from 'discord.js';
 import { google } from 'googleapis';
 import { Endpoint } from 'googleapis-common';
 
@@ -77,6 +77,8 @@ async function analyzeText(client: Readonly<Endpoint>, text: string) {
     })
 
     bot.on("message", async function (msg) {
+        if(msg.author == bot.user) return;
+        
         let data = await analyzeText(analyzerClient, msg.content);
         msg.channel.send(JSON.stringify(data));
     });
