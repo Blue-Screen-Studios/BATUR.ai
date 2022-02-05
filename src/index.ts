@@ -78,6 +78,6 @@ async function analyzeText(client: Readonly<Endpoint>, text: string) {
 
     bot.on("message", async function (msg) {
         let data = await analyzeText(analyzerClient, msg.content);
-        msg.channel.send(data.toString());
+        msg.channel.send(JSON.stringify(data));
     });
 })()
