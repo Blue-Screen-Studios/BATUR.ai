@@ -21,7 +21,7 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
-    "googleapis": "^95.0.0",
+    "googleapis": "^46.0.0",
     "os": "^0.1.2"
   }
 }

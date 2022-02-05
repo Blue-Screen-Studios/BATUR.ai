@@ -79,6 +79,6 @@ bot.on("ready", async () => {
 })
 
 bot.on("message", function (msg) {
-    const data = analyzeText(msg.content)
+    let data = analyzeText(msg.content);
     msg.channel.send(data.toString());
 });
