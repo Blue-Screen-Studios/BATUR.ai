@@ -1,18 +1,11 @@
 name: test-sweep
 on: [push]
 jobs:
-  Info:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-  Tests:
+  Install-Dependencies:
     runs-on: ubuntu-latest
     steps:
       - run: npm i
-      - run: npm run build
-  Status:
+  Build-Application:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "This job's status is ${{ job.status }}."
+      - run: npm run build
