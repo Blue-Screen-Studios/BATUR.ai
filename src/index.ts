@@ -6,6 +6,7 @@ import { google } from 'googleapis'
 //Component Function Imports
 import { analyzeText } from './components/testmsg'
 import { postCommands } from './components/commands';
+import { createCodeBlock } from './components/formatMessage';
 
 config();
 
@@ -36,7 +37,8 @@ config();
         if(commandName === 'analyze-content')
         {
             const content = options.getString('text')!
-            let response: string = "`Input: " + content + "`\n```json\n" + JSON.stringify(await analyzeText(analyzerClient, content)) + "\n```";
+            let result: string = JSON.stringify(await analyzeText(analyzerClient, content));
+            let response: string = createCodeBlock(result, 'json');
             
             interaction.reply({ 
                 content: response,
