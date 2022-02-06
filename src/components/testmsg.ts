@@ -1,24 +1,23 @@
 import { config } from 'dotenv'
-import { google } from 'googleapis'
 import { Endpoint } from 'googleapis-common';
 
 config()
 
 const attributeThresholds = {
-    'TOXICITY': 0.75,
-    'SEVERE_TOXICITY': 0.75,
-    'IDENTITY_ATTACK': 0.75,
-    'INSULT': 0.75,
-    'PROFANITY': 0.75,
-    'THREAT': 0.75,
-    'SEXUALLY_EXPLICIT': 0.75,
-    'FLIRTATION': 0.75,
-    'SPAM': 0.75,
     'ATTACK_ON_AUTHOR': 0.75,
     'ATTACK_ON_COMMENTER': 0.75,
+    'FLIRTATION': 0.75,
+    'IDENTITY_ATTACK': 0.75,
     'INCOHERENT': 0.75,
     'INFLAMMATORY': 0.75,
+    'INSULT': 0.75,
     'OBSCENE': 0.75,
+    'PROFANITY': 0.75,
+    'SEVERE_TOXICITY': 0.75,
+    'SEXUALLY_EXPLICIT': 0.75,
+    'THREAT': 0.75,
+    'TOXICITY': 0.75,
+    'SPAM': 0.75,
     'UNSUBSTANTIAL': 0.75
 };
 

@@ -1,7 +1,10 @@
+//Package Imports
 import { config } from 'dotenv';
-import { Client, Intents, Message, User } from 'discord.js';
+import { Client, Intents } from 'discord.js';
 import { google } from 'googleapis'
+//Component Function Imports
 import { analyzeText } from './components/testmsg'
+import { readCommand } from './components/fileSystem';
 
 config();
 
@@ -21,6 +24,9 @@ config();
     bot.on("ready", async () => {
         console.log("The bot is online according to node...");
         console.log("Open Discord to make sure...");
+
+        let text = await readCommand("analyze.json"); //This line is undefined
+        console.log(text);
     })
 
     bot.on("message", async function (msg) {
