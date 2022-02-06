@@ -5,7 +5,8 @@ import { google } from 'googleapis'
 
 //Component Function Imports
 import { analyzeText } from './components/testmsg'
-import { readCommandAsync } from './components/fileSystem';
+import { hashCommands, CommandHash } from './components/commands';
+import { resourceUsage } from 'process';
 
 config();
 
@@ -23,11 +24,9 @@ config();
     bot.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 
     bot.on("ready", async () => {
-        console.log("The bot is online according to node...");
-        console.log("Open Discord to make sure...");
+        console.log("NATUR.ai is online...");
 
-        let text = await readCommandAsync("analyze.json"); //This line is undefined
-        console.log(text);
+        let botCommands: CommandHash = await hashCommands();
     })
 
     bot.on("message", async function (msg) {
