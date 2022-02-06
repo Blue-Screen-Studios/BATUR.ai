@@ -1,6 +1,5 @@
 name: test-sweep
 on: [push]
-runs-on: ubuntu-latest
 jobs: 
   build:
     runs-on: ubuntu-latest
