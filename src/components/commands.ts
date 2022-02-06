@@ -1,23 +1,28 @@
-const fs = require('fs');
-const path = require('path');
+import { Options } from 'discord.js'
+import { Client } from 'discord.js'
 
-const commandsDirectory: string =  path.join(__dirname, './../../src/commands/');
-const commandFiles = fs.readdirSync(commandsDirectory);
 
-export interface CommandHash { [key: string]: string }
-let hashedCommandData: CommandHash = {}
-
-export async function hashCommands()
+export async function postCommands(client: Client)
 {
-    for(const file of commandFiles)
+    //GUILD
+    const guildID = "929815024158003280"
+    const testGuild = client.guilds.cache.get(guildID);
+
+    let commands
+
+    if(testGuild)
     {
-        hashedCommandData[file] = await getCommandJSON(file);
+        commands = testGuild?.commands;
     }
-
-    return hashedCommandData;
-}
-
-async function getCommandJSON(name: string)
-{
-    return await fs.promises.readFile(commandsDirectory + name, 'utf8');
+    else
+    {
+        commands = client.application?.commands;
+    }
+    
+    commands?.create({
+        name: "analyze-content",
+        description: "analyze content using Google's perspective API"
+    })
+    
+    //Global
 }
