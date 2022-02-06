@@ -42,7 +42,7 @@ config();
             
             interaction.reply({ 
                 content: response,
-                ephemeral: true
+                ephemeral: false
             })
         }
     })
@@ -50,8 +50,5 @@ config();
     client.on("messageCreate", async msg => {
         if(msg.author == client.user) return;
         if(msg.content === "") return;
-        
-        let data = await analyzeText(analyzerClient, msg.content);
-        msg.channel.send(JSON.stringify(data));
     });
 })()
