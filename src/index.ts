@@ -35,8 +35,11 @@ config();
         
         if(commandName === 'analyze-content')
         {
-            interaction.reply({
-                content: "null",
+            const content = options.getString('text')!
+            let response: string = "`Input: " + content + "`\n```json\n" + JSON.stringify(await analyzeText(analyzerClient, content)) + "\n```";
+            
+            interaction.reply({ 
+                content: response,
                 ephemeral: true
             })
         }

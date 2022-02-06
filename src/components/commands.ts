@@ -1,5 +1,6 @@
 import { Options } from 'discord.js'
 import { Client } from 'discord.js'
+import { ApplicationCommandOptionTypes } from 'discord.js/typings/enums';
 
 
 export async function postCommands(client: Client)
@@ -21,8 +22,16 @@ export async function postCommands(client: Client)
     
     commands?.create({
         name: "analyze-content",
-        description: "analyze content using Google's perspective API"
+        description: "analyze content using Google's perspective API",
+        options: [
+            {
+                name: "text",
+                description: "the text you want to be analyzed",
+                required: true,
+                type: ApplicationCommandOptionTypes.STRING
+            }
+        ]
     })
-    
+
     //Global
 }
