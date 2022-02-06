@@ -78,6 +78,7 @@ async function analyzeText(client: Readonly<Endpoint>, text: string) {
 
     bot.on("message", async function (msg) {
         if(msg.author == bot.user) return;
+        if(msg.content === "") return;
         
         let data = await analyzeText(analyzerClient, msg.content);
         msg.channel.send(JSON.stringify(data));
