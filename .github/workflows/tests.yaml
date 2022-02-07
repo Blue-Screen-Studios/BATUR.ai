@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 #Get source code into the VM using an officially maintained GitHub action
-      - run: fargle-bargle #will force action failure
+      - run: throw
         if: steps.check_files.outputs.files_exists == 'true'
   build:
     runs-on: ubuntu-latest
