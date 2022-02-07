@@ -10,7 +10,7 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      if: steps.check_files.outputs.files_exists == 'true'
+      - run: exit 1
   build:
     runs-on: ubuntu-latest
     steps:
