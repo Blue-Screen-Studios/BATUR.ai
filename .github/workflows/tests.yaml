@@ -1,6 +1,10 @@
-name: build
+name: tests
 on: [push]
-jobs: 
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - run: rm .env
   build:
     runs-on: ubuntu-latest
     steps:
