@@ -8,12 +8,13 @@ jobs:
       - uses: andstor/file-existence-action@v1
         with:
           files: ".env"
-  #security:
-    #runs-on: ubuntu-latest
-    #steps:
-      #- uses: actions/checkout@v2 #Get source code into the VM using an officially maintained GitHub action
-        
-        #if: steps.check_files.outputs.files_exists == 'true'
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: JesseTG/rm@v1.0.0
+      - with:
+          path: /.env
   build:
     runs-on: ubuntu-latest
     steps:
