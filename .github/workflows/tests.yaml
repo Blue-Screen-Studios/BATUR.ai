@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: JesseTG/rm@v1.0.0
-      - with:
+        with:
           path: /.env
   build:
     runs-on: ubuntu-latest
