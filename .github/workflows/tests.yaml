@@ -9,7 +9,8 @@ jobs:
           files: ".env"
   security:
     runs-on: ubuntu-latest
-    if: steps.check_files.outputs.files_exists == 'true'
+    steps:
+      if: steps.check_files.outputs.files_exists == 'true'
   build:
     runs-on: ubuntu-latest
     steps:
