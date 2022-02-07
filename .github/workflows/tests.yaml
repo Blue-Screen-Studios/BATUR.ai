@@ -10,7 +10,9 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2 #Get source code into the VM using an officially maintained GitHub action
       - run: exit 1
+        if: steps.check_files.outputs.files_exists == 'true'
   build:
     runs-on: ubuntu-latest
     steps:
