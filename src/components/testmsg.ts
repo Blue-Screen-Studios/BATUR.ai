@@ -37,11 +37,16 @@ export async function analyzeText(client: Readonly<Endpoint>, text: string) {
         languages: ['en'],
         requestedAttributes: defaultRequestedAttributes,
     };
+
+    console.log(analyzeRequest);
+
     // @ts-ignore
     const result = await client.comments.analyze({
         key: process.env.PERSPECTIVE_API_KEY,
         resource: analyzeRequest,
     });
+
+    console.log(result);
 
     // This is the format the API expects
 

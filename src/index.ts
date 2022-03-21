@@ -48,7 +48,7 @@ config();
     })
 
     client.on("messageCreate", async msg => {
-        if(msg.author == client.user) return;
-        if(msg.content === "") return;
+        if(msg.author == client.user) return; //Ignroe messages from ourself
+        if(msg.content === "") return; //Ignore empty messages
     });
 })()
