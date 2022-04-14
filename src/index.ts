@@ -5,6 +5,7 @@ import { Client, Intents, Interaction, Message } from 'discord.js';
 //Component Function Imports
 import { postCommands } from './components/commands';
 import { createCodeBlock } from './components/formatMessage';
+import { dbInit } from './database/mongoose';
 
 config();
 
@@ -22,7 +23,7 @@ config();
     client.on("ready", async () => {
         console.log("Econibot is online...");
 
-        postCommands(client);
+        dbInit();
     })
 
     client.on('interactionCreate', async (interaction) => {

@@ -2,6 +2,7 @@
 declare global {
     namespace NodeJS {
       interface ProcessEnv {
+        DATABASE_PASS: string;
         DISCORD_API_KEY: string;
       }
     }
