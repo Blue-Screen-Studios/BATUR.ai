@@ -2,17 +2,14 @@
 import { config } from 'dotenv';
 import { Client, Collection, Intents, Message, DiscordAPIError } from 'discord.js';
 import { cwd } from 'process';
+import * as fs from 'fs';
 
 //Configure dotenv
 config(); 
 
 //Component Function Imports
-import { postCommands } from './components/commands';
 import { createCodeBlock } from './components/formatMessage';
 import { dbInit } from './database/mongoose';
-
-//Required...
-const fs = require("fs");
 
 const client = new Client({
     intents: [ //Tells discord what kind of information you need sent
@@ -23,7 +20,7 @@ const client = new Client({
 
 client.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 
-client.cmdPrefix = "!";
+client.cmdPrefix = "$";
 client.commands = new Collection();
 
 console.log(cwd());
@@ -33,14 +30,15 @@ const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file
 
 for(const file of commandFiles)
 {
-    console.log(file);
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
 
 for(const file of eventFiles)
 {
-    const event = require(`./events/${file}`);
+    console.log(cwd() + `/src/events/${file}`)
+
+    const event = require(`./src/events/${file}`);
 
     if(event.once)
     {
