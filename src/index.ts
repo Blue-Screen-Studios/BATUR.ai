@@ -1,18 +1,14 @@
 //Package Imports
 import { config } from 'dotenv';
 import { Client, Intents, Interaction, Message } from 'discord.js';
-import { google } from 'googleapis'
 
 //Component Function Imports
-import { analyzeText } from './components/testmsg'
 import { postCommands } from './components/commands';
 import { createCodeBlock } from './components/formatMessage';
 
 config();
 
 (async () => {
-
-    const analyzerClient = await google.discoverAPI(process.env.DISCOVERY_URL);
 
     const client = new Client({
         intents: [ //Tells discord what kind of information you need sent
@@ -24,7 +20,7 @@ config();
     client.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 
     client.on("ready", async () => {
-        console.log("NATUR.ai is online...");
+        console.log("Econibot is online...");
 
         postCommands(client);
     })
@@ -34,21 +30,9 @@ config();
         
         const { commandName, options } = interaction;
         
-        if(commandName === 'analyze-content')
+        /*if(commandName === "")
         {
-            const content = options.getString('text')!
-            let result: string = JSON.stringify(await analyzeText(analyzerClient, content));
-            let response: string = createCodeBlock(result, 'json');
-            
-            interaction.reply({ 
-                content: response,
-                ephemeral: false
-            })
-        }
-    })
 
-    client.on("messageCreate", async msg => {
-        if(msg.author == client.user) return; //Ignroe messages from ourself
-        if(msg.content === "") return; //Ignore empty messages
-    });
+        }*/
+    })
 })()

@@ -12,7 +12,7 @@ export async function postCommands(client: Client)
 
     if(testGuild) { commands = testGuild?.commands; } else { commands = client.application?.commands; }
     
-    commands?.create({
+    /*commands?.create({
         name: "analyze-content",
         description: "analyze content using Google's perspective API",
         options: [
@@ -23,7 +23,7 @@ export async function postCommands(client: Client)
                 type: ApplicationCommandOptionTypes.STRING
             }
         ]
-    })
+    })*/
 
     //Global
 }
