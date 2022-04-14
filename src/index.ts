@@ -1,6 +1,7 @@
 //Package Imports
 import { config } from 'dotenv';
 import { Client, Collection, Intents, Message, DiscordAPIError } from 'discord.js';
+import { cwd } from 'process';
 
 //Configure dotenv
 config(); 
@@ -9,7 +10,6 @@ config();
 import { postCommands } from './components/commands';
 import { createCodeBlock } from './components/formatMessage';
 import { dbInit } from './database/mongoose';
-import { AggregationCursor } from 'mongoose';
 
 //Required...
 const fs = require("fs");
@@ -26,12 +26,14 @@ client.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 client.cmdPrefix = "!";
 client.commands = new Collection();
 
+console.log(cwd());
 
-const commandFiles = fs.readdirSync("./commands").filter((file: string) => file.endsWith('.ts'));
-const eventFiles = fs.readdirSync("./events").filter((file: string) => file.endsWith(".ts"));
+const commandFiles = fs.readdirSync("./src/commands/").filter((file: string) => file.endsWith('.ts'));
+const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file.endsWith(".ts"));
 
 for(const file of commandFiles)
 {
+    console.log(file);
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
