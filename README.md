@@ -29,8 +29,6 @@
 
 <p align="center">
     <strong>
-        This repository contains code for a Discord Bot that uses AI to help you with your moderation needs!
+        This repository contains code for a Discord Bot that helps run the economy on the Blue Screen Studios server!
     </strong>
-    <br/><br/>
-  <strong>B</strong>ad <strong>A</strong>ctor and <strong>T</strong>oxic <strong>U</strong>ser <strong>R</strong>emoval is a Discord bot developed by IBXCODECAT! BATUR uses AI to scan for "bad faith acting" and high levels of toxicity within a discord message. If BATUR flags a message, it will perform a custom moderation action specified by the server administrators.
 </P>
