@@ -1,17 +1,16 @@
 import { Client } from 'discord.js'
-import { ApplicationCommandOptionTypes } from 'discord.js/typings/enums';
-
 
 export async function postCommands(client: Client)
 {
     //GUILD
-    const guildID = "929815024158003280"
+    const guildID = "929815024158003280" //GUILD ID FOR BLUE SCREEN LABRATORIES (TEST SERVER)
     const testGuild = client.guilds.cache.get(guildID);
 
     let commands;
 
     if(testGuild) { commands = testGuild?.commands; } else { commands = client.application?.commands; }
     
+    ///COPIED FROM ANOTHER BOT FOR REFERENCE
     /*commands?.create({
         name: "analyze-content",
         description: "analyze content using Google's perspective API",

@@ -11,7 +11,7 @@ export function dbInit()
         family: 4
     };
 
-    mongo.connect(`mongodb+srv://IBXCODECAT:${process.env.DATABASE_PASS}@econcluster.vtl6n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
+    mongo.connect(`mongodb+srv://IBXCODECAT:${process.env.DATABASE_PASS}@econcluster.vtl6n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, dbOptions)
     mongo.set('useFindAndModify', false);
     mongo.Promise = global.Promise;
 
