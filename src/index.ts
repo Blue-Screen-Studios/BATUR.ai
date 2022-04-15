@@ -8,7 +8,8 @@ import * as fs from 'fs';
 config(); 
 
 //Component Function Imports
-import { makeBold, makeCode, makeCodeBlock, makeItalic, makeQuote } from './components/msgFormatting';
+import * as  consoleFormatting from './modules/consoleFormatting'
+import * as msgFormatting from './components/msgFormatting';
 import { dbInit } from './database/mongoose';
 
 const client = new Client({
@@ -23,7 +24,7 @@ client.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 client.cmdPrefix = "$";
 client.commands = new Collection();
 
-console.log(cwd());
+console.log(consoleFormatting.FgBlue, "CWD: " + cwd());
 
 const commandFiles = fs.readdirSync("./src/commands/").filter((file: string) => file.endsWith('.js'));
 const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file.endsWith(".js"));
