@@ -8,7 +8,7 @@ import * as fs from 'fs';
 config(); 
 
 //Component Function Imports
-import { createCodeBlock } from './components/formatMessage';
+import { makeBold, makeCode, makeCodeBlock, makeItalic, makeQuote } from './components/msgFormatting';
 import { dbInit } from './database/mongoose';
 
 const client = new Client({
