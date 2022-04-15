@@ -25,8 +25,8 @@ client.commands = new Collection();
 
 console.log(cwd());
 
-const commandFiles = fs.readdirSync("./src/commands/").filter((file: string) => file.endsWith('.ts'));
-const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file.endsWith(".ts"));
+const commandFiles = fs.readdirSync("./src/commands/").filter((file: string) => file.endsWith('.js'));
+const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file.endsWith(".js"));
 
 for(const file of commandFiles)
 {
@@ -38,7 +38,7 @@ for(const file of eventFiles)
 {
     console.log(cwd() + `/src/events/${file}`)
 
-    const event = require(`./src/events/${file}`);
+    const event = require(`./events/${file}`);
 
     if(event.once)
     {

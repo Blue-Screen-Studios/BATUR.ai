@@ -2,7 +2,7 @@ import { Client, Message } from "discord.js";
 
 module.exports = {
     name: 'message',
-    exectue(message: Message, client: Client) {
+    exectue(message, client) {
         if(message.author.bot) return;
         if(message.channel.type == 'DM') return;
         if(!message.content.startsWith(client.cmdPrefix)) return;

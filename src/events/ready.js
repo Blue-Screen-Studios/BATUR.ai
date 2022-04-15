@@ -4,7 +4,7 @@ module.exports = {
     name: 'ready',
     once: true,
 
-    exectue(client: Client) {
+    exectue(client) {
         console.log(`${client.user} has logged into discord via token...`);
     }
 }
