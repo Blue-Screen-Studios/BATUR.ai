@@ -10,7 +10,6 @@ config();
 //Component Function Imports
 import * as  consoleFormatting from './modules/consoleFormatting'
 import * as msgFormatting from './components/msgFormatting';
-import { dbInit } from './database/mongoose';
 
 const client = new Client({
     intents: [ //Tells discord what kind of information you need sent
@@ -24,8 +23,6 @@ client.login(process.env.DISCORD_API_KEY); //Login using discord secure token
 client.cmdPrefix = "$";
 client.commands = new Collection();
 
-console.log(consoleFormatting.FgBlue, "CWD: " + cwd());
-
 const commandFiles = fs.readdirSync("./src/commands/").filter((file: string) => file.endsWith('.js'));
 const eventFiles = fs.readdirSync("./src/events/").filter((file: string) => file.endsWith(".js"));
 
@@ -37,8 +34,6 @@ for(const file of commandFiles)
 
 for(const file of eventFiles)
 {
-    console.log(cwd() + `/src/events/${file}`)
-
     const event = require(`./events/${file}`);
 
     if(event.once)
@@ -50,12 +45,6 @@ for(const file of eventFiles)
         client.on(event.name, (...args) => event.execute(...args, client));
     }
 }
-
-client.on("ready", async () => {
-    console.log("Econibot is online...");
-
-    dbInit();
-})
 
 client.on('interactionCreate', async (interaction) => {
     if(!interaction.isCommand()) return;

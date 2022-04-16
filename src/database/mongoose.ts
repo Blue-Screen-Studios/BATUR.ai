@@ -1,4 +1,5 @@
 const mongo = require("mongoose");
+import * as consoleFormatting from '../modules/consoleFormatting';
 
 export function dbInit() 
 {
@@ -16,14 +17,14 @@ export function dbInit()
     mongo.Promise = global.Promise;
 
     mongo.connection.on('connected', () => {
-        console.log("Database Connected...");
+        console.log(consoleFormatting.FgGreen, "Database Connected...");
     })
 
     mongo.connection.on('disconnected', () => {
-        console.log("Database Disconnected...");
+        console.log(consoleFormatting.FgYellow, "Database Disconnected...");
     })
 
     mongo.connection.on('err', (err: Error) => {
-        console.log("There was an error connecting to the database: " + err);
+        console.log(consoleFormatting.FgRed, "There was an error connecting to the database: " + err);
     })
 }
