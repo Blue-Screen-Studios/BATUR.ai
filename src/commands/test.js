@@ -5,6 +5,6 @@ module.exports = {
     description: "test the bot",
     execute(message, args, client)
     {
-        
+        //do stuff
     }
 }
