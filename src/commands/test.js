@@ -1,10 +1,10 @@
 import { Client, Message } from "discord.js";
 
 module.exports = {
-    name: "test",
-    description: "test the bot",
+    name: "ping",
+    description: "get the pingtime of the bot",
     execute(message, args, client)
     {
-        //do stuff
+        message.channel.send(`${client.ping} ms`);
     }
 }

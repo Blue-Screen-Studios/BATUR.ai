@@ -7,8 +7,8 @@ module.exports = {
     once: true,
 
     exectue(client) {
-        console.log(consoleFormatting.FgGreen, `${client.user.tag} has logged into discord via token...`);
-        console.log(consoleFormatting.FgBlue, `${client.user.tag} is ready...`)
+        console.log(consoleFormatting.FgGreen, `${client.user} has logged into discord via token...`);
+        console.log(consoleFormatting.FgBlue, `${client.user} is ready...`)
 
         mongo.dbInit();
     }

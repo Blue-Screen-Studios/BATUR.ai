@@ -8,7 +8,7 @@ module.exports = {
         if(!message.content.startsWith(client.cmdPrefix)) return;
 
         const args = message.content.slice(client.cmdPrefix.length).trim().split(/ +/);
-        const commandName = args.shift()?.toLowerCase();
+        const commandName = args.shift().toLowerCase();
 
         if(!client.commands.has(commandName)) return;
 
@@ -20,6 +20,6 @@ module.exports = {
             console.log(ex);
         }
 
-        console.log(`${message.author.tag} in ${message.channel.toString()} sent ${message.content}`);
+        console.log(`${message.author} in ${message.channel.toString()} sent ${message.content}`);
     }
 }
