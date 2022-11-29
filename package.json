@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/IBXCODECAT/BATUR.ai#readme",
   "dependencies": {
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.7.0",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
     "i": "^0.3.7",
